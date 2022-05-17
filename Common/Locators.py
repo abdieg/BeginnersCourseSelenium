@@ -7,12 +7,18 @@ class Locators():
     topbar_sign_in_button = "//ul/li/a[contains(text(),'Sign in')]"
     topbar_sign_up_button = "//ul/li/a[contains(text(),'Sign up')]"
     topbar_new_article_button = "//ul/li/a[contains(text(),'New Article')]"
+    topbar_user_profile = "//li/a[contains(@href,'profile')]"
     section_your_feed = "//li/a[contains(text(),'Your Feed')]"
     section_global_feed = "//li/a[contains(text(),'Global Feed')]"
 
     signin_email = "//input[@placeholder='Email']"
     signin_password = "//input[@placeholder='Password']"
     signin_button = "//button[@type='submit'][contains(text(),'Sign in')]"
+
+    signup_user = "//input[@placeholder='Username']"
+    signup_email = "//input[@placeholder='Email']"
+    signup_password = "//input[@placeholder='Password']"
+    signup_button = "//button[@type='submit'][contains(text(),'Sign up')]"
 
     new_article_title = "//input[@formcontrolname='title']"
     new_article_about = "//input[@formcontrolname='description']"
@@ -25,3 +31,5 @@ class Locators():
 
     global_feed_article_preview_title = "//app-article-list//a[@class='preview-link']//h1"
     global_feed_article_preview_about = "//app-article-list//a[@class='preview-link']//p"
+
+    profile_username = "//div[@class='profile-page']//h4"

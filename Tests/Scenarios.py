@@ -96,5 +96,39 @@ class SmokeTest(Launch.Launch):
         print('> End of scenario: ' + tst_scenario)
         print('----------------------------------')
 
+    def test_sign_up_new_user(self):
+        tst_scenario = str(inspect.stack()[0][3].lstrip('test_'))
+        print('> Executing test case: ' + tst_scenario)
+        # Wait for alert to be displayed so we can dismiss it
+        # It's not possible to set values on alert as per open bug in webdriver
+        # https://github.com/w3c/webdriver/issues/385
+        cf.wait_for_alert(self.driver)
+        alert = self.driver.switch_to.alert
+        alert.dismiss()
+        # Wait for 401 authentication error
+        cf.wait_for_element(self.driver, Locators.authentication_401_message)
+        # Use URL with authentication parameters, then visit URL again without authentication
+        # This is a way to bypass the alert as per existing bug mentioned above
+        self.driver.get(Constant.app_auth)
+        self.driver.get(Constant.app)
+
+        # Sign up to create new user
+        random_user = cf.generate_random_lower_string(5)
+        random_mail = random_user + '@testmail.com'
+        password = '12345'
+        cf.click_on_element(self.driver, Locators.topbar_sign_up_button)
+        cf.write_on_element(self.driver, Locators.signup_user, random_user)
+        cf.write_on_element(self.driver, Locators.signup_email, random_mail)
+        cf.write_on_element(self.driver, Locators.signup_password, password)
+        cf.click_on_element(self.driver, Locators.signup_button)
+
+        # Go to user profile and validate username
+        cf.click_on_element(self.driver, Locators.topbar_user_profile)
+        cf.wait_for_element(self.driver, Locators.profile_username)
+        assert self.driver.find_element_by_xpath(Locators.profile_username).text == random_user
+
+        print('> End of scenario: ' + tst_scenario)
+        print('----------------------------------')
+
 if __name__ == '__main__':
     unittest.main()
