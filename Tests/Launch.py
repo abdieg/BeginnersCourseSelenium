@@ -1,4 +1,6 @@
 import unittest
+import sys
+sys.path.append('..')
 from selenium import webdriver
 from Common.Constant import Constant
 

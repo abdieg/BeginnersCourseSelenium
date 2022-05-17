@@ -1,5 +1,5 @@
 import inspect
-from Tests import Launch
+import Launch
 import unittest
 from Common import CommonFunctions as cf
 from Common.Constant import Constant
