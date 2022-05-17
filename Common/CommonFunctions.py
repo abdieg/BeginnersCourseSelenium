@@ -4,7 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, StaleElementReferenceException, NoSuchElementException
 from selenium.webdriver.common.by import By
-from Constant import Constant
+# from Constant import Constant
+from Common.Constant import Constant
 
 def wait_for_alert(_driver):
     timeout = Constant.timeout

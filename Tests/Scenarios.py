@@ -93,7 +93,6 @@ class SmokeTest(Launch.Launch):
         assert self.driver.find_element_by_xpath(Locators.global_feed_article_preview_title).text == title
         assert self.driver.find_element_by_xpath(Locators.global_feed_article_preview_about).text == about
 
-        # time.sleep(20)
         print('> End of scenario: ' + tst_scenario)
         print('----------------------------------')
 
