@@ -1,7 +1,7 @@
 class Constant():
 
     # Webdriver
-    driver_location = 'G:\\Proyectos\\Code\\Python\\BeginnersCourseSelenium\\Common\\geckodriver.exe'
+    driver_location = '/Users/diego/Code Projects/Python/_LIBRARIES/geckodriver'
     screen_width = 1920
     screen_height = 1280
     timeout = 10
